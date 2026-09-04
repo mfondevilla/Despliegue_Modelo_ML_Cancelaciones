@@ -1,0 +1,13 @@
+# --- Python ---
+__pycache__/
+
+# --- Virtual environments ---
+env/
+venv/
+.venv/
+
+# --- FastAPI / Uvicorn ---
+*.log
+
+
+
