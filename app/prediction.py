@@ -1,5 +1,4 @@
-import datetime
-
+from datetime import datetime
 import joblib
 import pandas as pd
 
@@ -16,18 +15,15 @@ pipeline = joblib.load(PIPELINE_PATH)
 def predict(data: PredictionInput):
 
     # Fecha de la reserva = momento en que se realiza la predicción
-    booking_date = datetime.now()
+    booking_date = datetime.now().date()
 
     # Calculamos lead_time a partir de las fechas
-    lead_time = (data.arrival_date.date() - booking_date.date()).days
+    lead_time = (data.arrival_date - booking_date).days
 
     if lead_time < 0:
         raise ValueError(
             "La fecha de llegada no puede ser anterior a la fecha de reserva."
         )
-    
-    # Variables derivadas
-    is_family = 1 if data.children > 0 else 0
     
     # Valores por defecto
     babies = 0

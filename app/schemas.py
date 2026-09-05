@@ -14,18 +14,12 @@ class PredictionInput(BaseModel):
     meal: str
     country: str
 
-    market_segment: str
-    distribution_channel: str
-
     reserved_room_type: str
-    assigned_room_type: str
 
     booking_changes: int = Field(ge=0)
     deposit_type: str
 
     agent: float | None = None
-
-    days_in_waiting_list: int = Field(default=0, ge=0)
 
     adr: float = Field(ge=0)
 

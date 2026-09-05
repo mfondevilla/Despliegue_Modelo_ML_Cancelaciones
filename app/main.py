@@ -28,8 +28,4 @@ def health():
 
 @app.post("/predict", response_model=PredictionOutput)
 def make_prediction(data: PredictionInput):
-    prediction = predict(data)
-
-    return {
-        "prediction": prediction
-    }
+    return predict(data)
