@@ -19,13 +19,11 @@ def root():
         "message": "Machine Learning API funcionando"
     }
 
-@app.get("/health")
-def health():
-    return {
-        "status": "ok"
-    }
-
-
 @app.post("/predict", response_model=PredictionOutput)
+def make_prediction(data: PredictionInput):
+    # mostrar página.html con el formulario
+    return predict(data)
+
+@app.post("/app/v1/predict", response_model=PredictionOutput)
 def make_prediction(data: PredictionInput):
     return predict(data)
