@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException, UploadFile, File
-from fastapi.responses import JSONResponse
+from fastapi.responses import RedirectResponse
 from app import model as ml
 from app.schemas import PredictionInput, PredictionOutput
 from app.prediction import predict
@@ -15,9 +15,7 @@ app = FastAPI(
 
 @app.get("/")
 def root():
-    return {
-        "message": "Machine Learning API funcionando"
-    }
+    return RedirectResponse(url="/docs")
 
 @app.post("/predict", response_model=PredictionOutput)
 def make_prediction(data: PredictionInput):
