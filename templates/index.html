@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hotel Booking Predictor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Hotel Booking Cancellation Predictor</h1>
+
+            <p>
+                Introduce los datos de la reserva para predecir
+                la probabilidad de cancelación.
+            </p>
+        </div>
+
+
+        <form id="prediction-form">
+
+            <!-- FECHA -->
+
+            <div class="form-group">
+                <label for="arrival_date">
+                    Fecha de llegada
+                </label>
+
+                <input
+                    type="date"
+                    id="arrival_date"
+                    required
+                >
+            </div>
+
+
+            <!-- NOCHES -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="stays_in_weekend_nights">
+                        Noches de fin de semana
+                    </label>
+
+                    <input
+                        type="number"
+                        id="stays_in_weekend_nights"
+                        min="0"
+                        value="0"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="stays_in_week_nights">
+                        Noches entre semana
+                    </label>
+
+                    <input
+                        type="number"
+                        id="stays_in_week_nights"
+                        min="0"
+                        value="0"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- HUESPEDES -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="adults">
+                        Adultos
+                    </label>
+
+                    <input
+                        type="number"
+                        id="adults"
+                        min="0"
+                        value="2"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="children">
+                        Niños
+                    </label>
+
+                    <input
+                        type="number"
+                        id="children"
+                        min="0"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- COMIDA -->
+
+            <div class="form-group">
+
+                <label for="meal">
+                    Tipo de comida
+                </label>
+
+                <select id="meal" required>
+
+                    <option value="BB">BB</option>
+                    <option value="FB">FB</option>
+                    <option value="HB">HB</option>
+                    <option value="SC">SC</option>
+                    <option value="Undefined">Undefined</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- PAIS -->
+
+            <div class="form-group">
+
+                <label for="country">
+                    País
+                </label>
+
+                <input
+                    type="text"
+                    id="country"
+                    placeholder="Ej. PRT"
+                    required
+                >
+
+            </div>
+
+
+            <!-- HABITACION -->
+
+            <div class="form-group">
+
+                <label for="reserved_room_type">
+                    Tipo de habitación
+                </label>
+
+                <select id="reserved_room_type" required>
+
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="L">L</option>
+                    <option value="P">P</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- CAMBIOS -->
+
+            <div class="form-group">
+
+                <label for="booking_changes">
+                    Cambios en la reserva
+                </label>
+
+                <input
+                    type="number"
+                    id="booking_changes"
+                    min="0"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+            <!-- DEPOSITO -->
+
+            <div class="form-group">
+
+                <label for="deposit_type">
+                    Tipo de depósito
+                </label>
+
+                <select id="deposit_type" required>
+
+                    <option value="No Deposit">
+                        No Deposit
+                    </option>
+
+                    <option value="Refundable">
+                        Refundable
+                    </option>
+
+                    <option value="Non Refund">
+                        Non Refund
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- AGENTE -->
+
+            <div class="form-group">
+
+                <label for="agent">
+                    Agente
+                </label>
+
+                <input
+                    type="number"
+                    id="agent"
+                    min="0"
+                    step="1"
+                    placeholder="Opcional"
+                >
+
+            </div>
+
+
+            <!-- ADR -->
+
+            <div class="form-group">
+
+                <label for="adr">
+                    ADR
+                </label>
+
+                <input
+                    type="number"
+                    id="adr"
+                    min="0"
+                    step="0.01"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PARKING -->
+
+            <div class="form-group">
+
+                <label for="required_car_parking_spaces">
+                    Plazas de parking necesarias
+                </label>
+
+                <input
+                    type="number"
+                    id="required_car_parking_spaces"
+                    min="0"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+            <!-- SOLICITUDES -->
+
+            <div class="form-group">
+
+                <label for="total_of_special_requests">
+                    Solicitudes especiales
+                </label>
+
+                <input
+                    type="number"
+                    id="total_of_special_requests"
+                    min="0"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit">
+                Predecir cancelación
+            </button>
+
+        </form>
+
+
+        <div id="result"></div>
+
+    </div>
+
+
+    <script>
+
+        const form = document.getElementById("prediction-form");
+        const result = document.getElementById("result");
+
+        form.addEventListener("submit", async function(event) {
+
+            // Evita que el navegador recargue la página
+            event.preventDefault();
+
+            // Recogemos los datos del formulario
+            const data = {
+
+                arrival_date: document.getElementById("arrival_date").value,
+
+                stays_in_weekend_nights:
+                    Number(document.getElementById("stays_in_weekend_nights").value),
+
+                stays_in_week_nights:
+                    Number(document.getElementById("stays_in_week_nights").value),
+
+                adults:
+                    Number(document.getElementById("adults").value),
+
+                children:
+                    Number(document.getElementById("children").value),
+
+                meal:
+                    document.getElementById("meal").value,
+
+                country:
+                    document.getElementById("country").value,
+
+                reserved_room_type:
+                    document.getElementById("reserved_room_type").value,
+
+                booking_changes:
+                    Number(document.getElementById("booking_changes").value),
+
+                deposit_type:
+                    document.getElementById("deposit_type").value,
+
+                agent:
+                    document.getElementById("agent").value === ""
+                        ? null
+                        : Number(document.getElementById("agent").value),
+
+                adr:
+                    Number(document.getElementById("adr").value),
+
+                required_car_parking_spaces:
+                    Number(document.getElementById("required_car_parking_spaces").value),
+
+                total_of_special_requests:
+                    Number(document.getElementById("total_of_special_requests").value)
+            };
+
+
+            // Enviamos los datos a FastAPI
+            const response = await fetch("/predict", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(data)
+
+            });
+
+
+            // Si FastAPI devuelve un error
+            if (!response.ok) {
+
+                result.innerHTML = `
+                    <div class="error">
+                        ❌ Ha ocurrido un error al realizar la predicción.
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            // Recibimos la respuesta del modelo
+            const prediction = await response.json();
+
+
+            // Mostramos el resultado
+            if (prediction.cancellation) {
+
+                result.innerHTML = `
+                    <div class="result cancellation">
+                        <h2>⚠️ Alta probabilidad de cancelación</h2>
+
+                        <p>
+                            Probabilidad de cancelación:
+                            <strong>
+                                ${(prediction.cancellation_probability * 100).toFixed(2)}%
+                            </strong>
+                        </p>
+                    </div>
+                `;
+
+            } else {
+
+                result.innerHTML = `
+                    <div class="result no-cancellation">
+                        <h2>✅ Baja probabilidad de cancelación</h2>
+
+                        <p>
+                            Probabilidad de cancelación:
+                            <strong>
+                                ${(prediction.cancellation_probability * 100).toFixed(2)}%
+                            </strong>
+                        </p>
+                    </div>
+                `;
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
