@@ -7,6 +7,8 @@ from app import model as ml
 from app.schemas import PredictionInput, PredictionOutput
 from app.prediction import predict
 
+import pandas as pd
+
 app = FastAPI(
     title="Hotel Booking Cancellation Predictor API",
     description=(
@@ -34,7 +36,15 @@ def root():
 
 @app.get("/predictor-form")
 def predictor_form(request: Request):
-    return templates.TemplateResponse(request, "index.html")
+    df = pd.read_csv("data/hotel_bookings.csv")
+    countries = sorted(df["country"].dropna().unique().tolist())
+    return templates.TemplateResponse(
+        request,
+        "index.html",
+        {"countries": countries}
+    )
+
+
 
 
 @app.post("/predict", response_model=PredictionOutput)
