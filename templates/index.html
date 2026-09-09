@@ -16,13 +16,21 @@
     <div class="container">
 
         <div class="header">
-            <h1>Hotel Booking Cancellation Predictor</h1>
+            <div class="mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="1.6">
+                    <path d="M4 21V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v15" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 21V10a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 9h0M8 12h0M8 15h0M17 13h0M17 16h0" stroke-linecap="round"/>
+                </svg>
+            </div>
 
-            <p>
-                Introduce los datos de la reserva para predecir
-                la probabilidad de cancelación.
-            </p>
-        </div>
+        <h1>Hotel Booking Cancellation Predictor</h1>
+
+        <p>
+            Introduce los datos de la reserva para predecir
+            la probabilidad de cancelación.
+        </p>
+    </div>
 
 
         <form id="prediction-form">
@@ -170,16 +178,30 @@
 
                 <select id="reserved_room_type" required>
 
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                    <option value="F">F</option>
-                    <option value="G">G</option>
-                    <option value="H">H</option>
-                    <option value="L">L</option>
-                    <option value="P">P</option>
+                    <optgroup label="Estándar">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </optgroup>
+
+                    <optgroup label="Superior">
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                    </optgroup>
+
+                    <optgroup label="Deluxe / Premium">
+                        <option value="G">G</option>
+                        <option value="H">H</option>
+                    </optgroup>
+
+                    <optgroup label="Suite ejecutiva">
+                        <option value="L">L</option>
+                    </optgroup>
+
+                    <optgroup label="Suite premium / presidencial">
+                        <option value="P">P</option>
+                    </optgroup>
 
                 </select>
 
@@ -256,7 +278,7 @@
             <div class="form-group">
 
                 <label for="adr">
-                    ADR
+                    Precio medio por noche (ADR)
                 </label>
 
                 <input

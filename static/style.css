@@ -1,164 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+ 
 * {
     box-sizing: border-box;
 }
-
-
+ 
+ 
 body {
     margin: 0;
-    padding: 40px 20px;
-
-    font-family: Arial, sans-serif;
-
-    background: #f4f6f8;
+    padding: 60px 20px;
+ 
+    font-family: 'Inter', Arial, sans-serif;
+ 
+    background: radial-gradient(circle at 15% 0%, #123058 0%, #0A1F3D 45%, #081831 100%);
+    min-height: 100vh;
 }
-
-
+ 
+ 
 .container {
     max-width: 750px;
-
+ 
     margin: 0 auto;
-
-    padding: 40px;
-
-    background: white;
-
-    border-radius: 16px;
-
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+ 
+    padding: 44px 40px 40px;
+ 
+    background: #FFFFFF;
+ 
+    border-radius: 14px;
+    border-top: 4px solid #C6A15B;
+ 
+    box-shadow: 0 24px 60px rgba(4, 15, 33, 0.45);
 }
-
-
+ 
+ 
 .header {
     text-align: center;
-
-    margin-bottom: 35px;
+ 
+    margin-bottom: 38px;
 }
-
-
+ 
+ 
+.header .mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+ 
+    width: 52px;
+    height: 52px;
+ 
+    margin-bottom: 16px;
+ 
+    border-radius: 10px;
+    background: #0A1F3D;
+}
+ 
+ 
+.header .mark svg {
+    width: 26px;
+    height: 26px;
+}
+ 
+ 
 .header h1 {
-    margin-bottom: 10px;
-
-    font-size: 32px;
-
-    color: #263f5f;
+    margin: 0 0 10px;
+ 
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+ 
+    color: #14284A;
 }
-
-
+ 
+ 
 .header p {
-    color: #6b7280;
-
-    font-size: 16px;
-
+    color: #64748B;
+ 
+    font-size: 15px;
+ 
     line-height: 1.5;
 }
-
-
+ 
+ 
 .form-row {
     display: grid;
-
+ 
     grid-template-columns: 1fr 1fr;
-
+ 
     gap: 20px;
 }
-
-
+ 
+ 
 .form-group {
     display: flex;
-
+ 
     flex-direction: column;
-
+ 
     margin-bottom: 20px;
 }
-
-
+ 
+ 
 label {
     margin-bottom: 7px;
-
-    font-weight: bold;
-
-    color: #374151;
+ 
+    font-weight: 600;
+    font-size: 14px;
+ 
+    color: #33455C;
 }
-
-
+ 
+ 
 input,
 select {
     width: 100%;
-
-    padding: 12px;
-
+ 
+    padding: 12px 14px;
+ 
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 15px;
-
-    border: 1px solid #d1d5db;
-
+ 
+    border: 1px solid #D6DCE5;
+ 
     border-radius: 8px;
-
-    background: white;
+ 
+    background: #FBFCFD;
+ 
+    color: #1B3A5C;
 }
-
-
+ 
+ 
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%2333455C' stroke-width='1.6'%3E%3Cpath d='M5 8l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+ 
+    padding-right: 40px;
+}
+ 
+ 
 input:focus,
 select:focus {
     outline: none;
-
-    border-color: #4f8cc9;
-
-    box-shadow: 0 0 0 2px rgba(79, 140, 201, 0.15);
+ 
+    border-color: #C6A15B;
+    box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.25);
 }
-
-
+ 
+ 
 button {
     width: 100%;
-
+ 
     margin-top: 10px;
-
+ 
     padding: 14px;
-
+ 
     border: none;
-
+ 
     border-radius: 8px;
-
-    background: #263f5f;
-
+ 
+    background: #0A1F3D;
+ 
     color: white;
-
+ 
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 16px;
-
-    font-weight: bold;
-
+    font-weight: 600;
+ 
     cursor: pointer;
+ 
+    transition: background 0.15s ease;
 }
-
-
+ 
+ 
 button:hover {
-    opacity: 0.9;
+    background: #123058;
 }
-
-
+ 
+ 
 #result {
     margin-top: 30px;
-
+ 
     padding: 20px;
-
+ 
     border-radius: 10px;
-
-    background: #f3f4f6;
-
+ 
+    background: #F4F6F9;
+ 
     text-align: center;
 }
-
-
+ 
+ 
+#result .result h2 {
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0 0 6px;
+}
+ 
+ 
+#result .cancellation {
+    color: #7A2E2E;
+}
+ 
+ 
+#result .no-cancellation {
+    color: #1F5C3F;
+}
+ 
+ 
 @media (max-width: 600px) {
-
+ 
     .container {
-        padding: 25px;
+        padding: 30px 24px;
     }
-
+ 
     .form-row {
         grid-template-columns: 1fr;
     }
-
+ 
     .header h1 {
-        font-size: 26px;
+        font-size: 25px;
     }
-
+ 
 }
