@@ -28,7 +28,9 @@ def root():
     return """
     <h2>🏨 Hotel Booking Cancellation Predictor</h2>
     <p>Pulsa el botón para abrir el formulario de predicción.</p>
-  
+    <a href="/predictor-form">
+        <button>Abrir formulario de predicción</button>
+    </a>
     """
 
 
